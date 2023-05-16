@@ -11,7 +11,7 @@ export default function Home() {
   const [width, setWidth] = useState(512)
   const [images, setImages] = useState('')
   const [loading, setLoading] = useState(false)
-  const [model, setModel] = useState('Stable Diffusion 1.4')
+  const [model, setModel] = useState('')
 
   const negative_promps = [
     "bad anatomy",
@@ -44,8 +44,8 @@ export default function Home() {
   ]
 
   const models = [
-    "Stable Diffusion 1.4",
-    "Stable Diffusion 2.1",
+    "CompVis/stable-diffusion-v1-4",
+    "stabilityai/stable-diffusion-2-1",
   ]
 
   const data = {
@@ -54,7 +54,8 @@ export default function Home() {
     "numImages": numImages,
     "numTrain": numTrain,
     "height": width,
-    "width": height
+    "width": height,
+    "model": model
   }
 
 
@@ -67,7 +68,8 @@ export default function Home() {
     console.log("num_train: ", data.numTrain)
     console.log("width: ", data.width)
     console.log("height: ", data.height)
-    const response = await axios.get(`http://127.0.0.1:8000/?prompt=${data.prompt}?negative_prompt=${data.negativePrompt}?num_images_per_prompt=${data.numImages}?num_inference_steps=${data.numTrain}?height=${data.height}?width=${data.width}`)
+    console.log("model: ", data.model)
+    const response = await axios.get(`http://127.0.0.1:8000/?prompt=${data.prompt}&negative_prompt=${data.negativePrompt}&num_images_per_prompt=${data.numImages}&num_inference_steps=${data.numTrain}&height=${data.height}&width=${data.width}&model_id=${data.model}`)
     if (numImages > 1) {
       // loop through the images and display them
       setImages(response.data)
@@ -80,8 +82,8 @@ export default function Home() {
 
   return (
     <div className='bg-gray-950'>
-      <div className='flex flex-row items-center justify-center pt-16 mt-16 mb-4' >
-        <div className='flex flex-col items-center justify-center'>
+      <div className='flex flex-row items-center justify-center pt-16 mt-16 mb-4'>
+        <div className='flex flex-col items-center justify-center' >
           <h1 className='text-8xl flex-1 text-center animate-glow'>Text 2 Image</h1>
           <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
         </div>
@@ -93,7 +95,7 @@ export default function Home() {
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Prompt</label>
               <input
-                className='border-2 rounded-md p-2 m-4 w-full text-black'
+                className='border-2 rounded-md p-2 m-4 w-full text-black text-xl'
                 type="text"
                 value={prompt}
                 placeholder='Enter prompt here'
@@ -103,7 +105,7 @@ export default function Home() {
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Negative Prompt</label>
               <select
-                className='border-2 rounded-md p-2 m-4 w-auto text-black'
+                className='border-2 rounded-md p-2 m-4 w-auto text-black text-xl'
                 type="text"
                 value={negativePrompt}
                 onChange={e => setNegativePrompt(prevValue =>
@@ -114,7 +116,7 @@ export default function Home() {
                 ))}
               </select>
               <input
-                className='border-2 rounded-md p-2 m-4 flex-grow text-black'
+                className='border-2 rounded-md p-2 m-4 flex-grow text-black text-xl'
                 type="text"
                 value={negativePrompt}
                 placeholder=''
@@ -169,7 +171,7 @@ export default function Home() {
               <label className='text-2xl'>Height</label>
               <div className=' mx-4 flex flex-col items-center'>
                 <input
-                  className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center'
+                  className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
                   type="number"
                   value={height}
                   placeholder='Enter text here'
@@ -188,7 +190,7 @@ export default function Home() {
               <label className='text-2xl'>Width</label>
               <div className=' mx-4 flex flex-col items-center'>
                 <input
-                  className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center'
+                  className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
                   type="number"
                   value={width}
                   placeholder='Enter text here'
@@ -223,35 +225,41 @@ export default function Home() {
           <button
             className='bg-purple-700 text-white rounded-md p-2 w-1/2'
             onClick={() => generateImage(data)}
+            disabled={loading}
           >
             Generate Image
           </button>
           {/* a placeholder for the image generated */}
           <div className='flex flex-col items-center justify-center'>
             {loading && <h1 className='text-2xl text-purple-700'>Loading...</h1>}
-            <div className='grid grid-cols-2 gap-4'>
-              {images && images.map((image, index) => (
-                <div
-                  key={index}
-                  className='flex flex-col items-center justify-center'>
-                  <Image
-                    className='border-2 border-purple-700 rounded-md p-2 m-4'
-                    height={250}
-                    width={250}
-                    src={`data:image/png;base64,${image}`}
-                    alt={`Generated Image`}
-                  />
-                  <a
-                    href={`data:image/png;base64,${image}`}
-                    download={`image${index + 1}.png`}
-                    className="bg-purple-700 text-white rounded-md p-2"
-                  >
-                    Download
-                  </a>
-                </div>
-              ))
-              }
-            </div>
+            {!loading ?
+              <div className='grid grid-cols-2 gap-4'>
+                {images && images.map((image, index) => (
+                  <div
+                    key={index}
+                    className='flex flex-col items-center justify-center'>
+                    <Image
+                      className='border-2 border-purple-700 rounded-md p-2 m-4'
+                      height={250}
+                      width={250}
+                      src={`data:image/png;base64,${image}`}
+                      alt={`Generated Image`}
+                    />
+                    <a
+                      href={`data:image/png;base64,${image}`}
+                      download={`image${index + 1}.png`}
+                      className="bg-purple-700 text-white rounded-md p-2"
+                    >
+                      Download
+                    </a>
+                  </div>
+                ))
+                }
+              </div>
+              :
+              <div className='flex flex-col items-center justify-center'>
+              </div>
+            }
           </div>
         </main>
         <footer className="flex items-center justify-center w-full h-24 border-t">

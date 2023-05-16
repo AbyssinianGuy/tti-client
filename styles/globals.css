@@ -48,6 +48,10 @@ a{
     color: #9c0f5d;
   }
 }
+/* glow animation on image hover */
+image:hover {
+  animation: glow 5s ease-in-out infinite;
+}
 
 .animate-glow {
   animation: glow 5s ease-in-out infinite;
