@@ -4,24 +4,51 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 3, 7, 18;
+  --background-end-rgb: 3, 7, 18;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+
+
+body {
+  background-color: #030712;
+}
+
+h1{
+  color: #E5D8BF
+}
+
+input, select, textarea{
+  background-color: #E5D8BF;
+  border-color: #E5D8BF;
+}
+input:hover, select:hover, textarea:hover{
+  background-color: #595B83;
+}
+
+label{
+  color: #E5D8BF;
+}
+
+a{
+  color: #E5D8BF;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #c40f0f;
+    color: #c40f0f;
+  }
+  50% {
+    text-shadow: 0 0 20px #151464;
+    color: #151464;
+  }
+  100% {
+    text-shadow: 0 0 5px #9c0f5d;
+    color: #9c0f5d;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.animate-glow {
+  animation: glow 5s ease-in-out infinite;
 }
