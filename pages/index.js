@@ -224,7 +224,7 @@ export default function Home() {
             </div>
           </div>
           <button
-            className='bg-purple-700 text-white rounded-md p-2 w-1/2 disabled: opacity-40'
+            className='bg-purple-700 text-white rounded-md p-2 w-1/2 disabled:opacity-40'
             onClick={() => generateImage(data)}
             disabled={loading}
           >
