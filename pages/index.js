@@ -83,53 +83,58 @@ export default function Home() {
 
   return (
     <div className='bg-gray-950'>
-      <div className='flex flex-row items-center justify-center pt-16 mt-16 mb-4'>
-        <div className='flex flex-col items-center justify-center' >
-          <h1 className='text-8xl flex-1 text-center animate-glow'>Text 2 Image</h1>
-          <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
+      <div className='flex flex-col items-center justify-center pt-16 mt-16 mb-4'>
+        <div className='flex flex-col items-center justify-center'>
+          <h1 className='text-4xl md:text-8xl flex-1 text-center animate-glow'>Text 2 Image</h1>
+          <h1 className='text-4xl md:text-8xl flex-1 text-center animate-glow'>🤖</h1>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
+      <div className='flex flex-col items-center justify-center min-h-screen py-2'>
+        <main className='flex flex-col items-center justify-center flex-1 px-10 md:px-20 text-center'>
           {/* an input prompt for text and a button for generating image */}
-          <div className='grid grid-cols-1 gap-4 px-10 py-10'>
-            <div className='flex flex-row items-center'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-4 px-10 py-10 w-full'>
+            <div className='flex flex-col items-center'>
               <label className='text-2xl'>Prompt</label>
               <input
                 className='border-2 rounded-md p-2 m-4 w-full text-black text-xl'
-                type="text"
+                type='text'
                 value={prompt}
                 placeholder='Enter prompt here'
                 onChange={e => setPrompt(e.target.value)}
               />
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='flex flex-col items-center'>
               <label className='text-2xl'>Negative Prompt</label>
               <select
                 className='border-2 rounded-md p-2 m-4 w-auto text-black text-xl'
-                type="text"
+                type='text'
                 value={negativePrompt}
-                onChange={e => setNegativePrompt(prevValue =>
-                  prevValue ? prevValue + ", " + e.target.value : e.target.value)}
+                onChange={e =>
+                  setNegativePrompt(prevValue =>
+                    prevValue ? prevValue + ', ' + e.target.value : e.target.value
+                  )
+                }
               >
                 {negative_promps.map((item, index) => (
-                  <option key={index} value={item}>{item}</option>
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
                 ))}
               </select>
               <input
-                className='border-2 rounded-md p-2 m-4 flex-grow text-black text-xl'
-                type="text"
+                className='border-2 rounded-md p-2 m-4 w-full text-black text-xl'
+                type='text'
                 value={negativePrompt}
                 placeholder=''
                 onChange={e => setNegativePrompt(e.target.value)}
               />
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='flex flex-col items-center'>
               <label className='text-2xl'>Number of Images</label>
-              <div className=' mx-4 flex flex-1 flex-row items-center'>
+              <div className='mx-4 flex flex-1 flex-row items-center'>
                 <input
                   className='border-1 rounded-md p-0 m-4 w-full text-black'
-                  type="range"
+                  type='range'
                   min={1}
                   max={8}
                   step={1}
@@ -138,20 +143,19 @@ export default function Home() {
                 />
                 <input
                   className='text-2xl border-2 rounded-md p-2 m-4 w-1/4 text-black text-center'
-                  type="number"
+                  type='number'
                   value={numImages}
                   placeholder='Enter text here'
                   onChange={e => setNumImages(e.target.value)}
                   max={8}
                 />
-
               </div>
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='flex flex-col items-center'>
               <label className='text-2xl'>Number of Training Images</label>
               <input
                 className='border-1 rounded-md p-0 m-4 w-full text-black'
-                type="range"
+                type='range'
                 min={30}
                 max={150}
                 step={5}
@@ -168,19 +172,19 @@ export default function Home() {
                 onChange={e => setNumTrain(e.target.value)}
               />
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='flex flex-col items-center'>
               <label className='text-2xl'>Height</label>
-              <div className=' mx-4 flex flex-col items-center'>
+              <div className='mx-4 flex flex-col items-center'>
                 <input
                   className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
-                  type="number"
+                  type='number'
                   value={height}
                   placeholder='Enter text here'
                   onChange={e => setHeight(e.target.value)}
                 />
                 <input
                   className='border-1 rounded-md p-0 m-4 w-full text-black'
-                  type="range"
+                  type='range'
                   min={256}
                   step={256}
                   max={1024}
@@ -189,17 +193,17 @@ export default function Home() {
                 />
               </div>
               <label className='text-2xl'>Width</label>
-              <div className=' mx-4 flex flex-col items-center'>
+              <div className='mx-4 flex flex-col items-center'>
                 <input
                   className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
-                  type="number"
+                  type='number'
                   value={width}
                   placeholder='Enter text here'
                   onChange={e => setWidth(e.target.value)}
                 />
                 <input
                   className='border-1 rounded-md p-0 m-4 w-full text-black text-center'
-                  type="range"
+                  type='range'
                   min={256}
                   step={256}
                   max={1024}
@@ -209,16 +213,18 @@ export default function Home() {
               </div>
             </div>
             {/* model selection */}
-            <div className='flex flex-row items-center justify-center'>
+            <div className='flex flex-col items-center'>
               <label className='text-2xl'>Model</label>
               <select
                 className='border-2 rounded-md p-2 m-4 w-auto text-black text-xl'
-                type="text"
+                type='text'
                 value={model}
                 onChange={e => setModel(e.target.value)}
               >
                 {models.map((item, index) => (
-                  <option key={index} value={item}>{item}</option>
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
                 ))}
               </select>
             </div>
@@ -238,14 +244,14 @@ export default function Home() {
                 {/* animation here */}
                 <GridLoader color='#7C3AED' size={20} />
               </div>
-            )
-              :
-              (
-                <div className='grid grid-cols-2 gap-4'>
-                  {images && images.map((image, index) => (
+            ) : (
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                {images &&
+                  images.map((image, index) => (
                     <div
                       key={index}
-                      className='flex flex-col items-center justify-center'>
+                      className='flex flex-col items-center justify-center'
+                    >
                       <Image
                         className='border-2 border-purple-700 rounded-md p-2 m-4'
                         height={250}
@@ -256,26 +262,25 @@ export default function Home() {
                       <a
                         href={`data:image/png;base64,${image}`}
                         download={`image${index + 1}.png`}
-                        className="bg-purple-700 text-white rounded-md p-2"
+                        className='bg-purple-700 text-white rounded-md p-2'
                       >
                         Download
                       </a>
                     </div>
-                  ))
-                  }
-                </div>
-              )
-            }
+                  ))}
+              </div>
+            )}
           </div>
         </main>
-        <footer className="flex items-center justify-center w-full h-24 border-t">
+        <footer className='flex items-center justify-center w-full h-24 border-t'>
           <a
-            className="flex items-center justify-center"
-            href="https://abyssinian.io"
-            target="_blank"
-            rel="noopener noreferrer"
+            className='flex items-center justify-center'
+            href='https://abyssinian.io'
+            target='_blank'
+            rel='noopener noreferrer'
           >
-            Powered by{<span className=' text-purple-700'>&nbsp;Abyssinian.AI</span>}
+            Powered by
+            <span className='text-purple-700'>&nbsp;Abyssinian.AI</span>
           </a>
         </footer>
       </div>
