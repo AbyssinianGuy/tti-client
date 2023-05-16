@@ -70,7 +70,7 @@ export default function Home() {
     console.log("width: ", data.width)
     console.log("height: ", data.height)
     console.log("model: ", data.model)
-    const response = await axios.get(`http://127.0.0.1:8000/?prompt=${data.prompt}&negative_prompt=${data.negativePrompt}&num_images_per_prompt=${data.numImages}&num_inference_steps=${data.numTrain}&height=${data.height}&width=${data.width}&model_id=${data.model}`)
+    const response = await axios.get(`https://tti-api.herokuapp.com/?prompt=${data.prompt}&negative_prompt=${data.negativePrompt}&num_images_per_prompt=${data.numImages}&num_inference_steps=${data.numTrain}&height=${data.height}&width=${data.width}&model_id=${data.model}`)
     if (numImages > 1) {
       // loop through the images and display them
       setImages(response.data)
