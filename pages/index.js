@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import axios from 'axios'
 import { useState } from 'react'
+import { GridLoader } from 'react-spinners'
 
 export default function Home() {
   const [prompt, setPrompt] = useState('')
@@ -223,7 +224,7 @@ export default function Home() {
             </div>
           </div>
           <button
-            className='bg-purple-700 text-white rounded-md p-2 w-1/2'
+            className='bg-purple-700 text-white rounded-md p-2 w-1/2 disabled: opacity-40'
             onClick={() => generateImage(data)}
             disabled={loading}
           >
@@ -231,34 +232,39 @@ export default function Home() {
           </button>
           {/* a placeholder for the image generated */}
           <div className='flex flex-col items-center justify-center'>
-            {loading && <h1 className='text-2xl text-purple-700'>Loading...</h1>}
-            {!loading ?
-              <div className='grid grid-cols-2 gap-4'>
-                {images && images.map((image, index) => (
-                  <div
-                    key={index}
-                    className='flex flex-col items-center justify-center'>
-                    <Image
-                      className='border-2 border-purple-700 rounded-md p-2 m-4'
-                      height={250}
-                      width={250}
-                      src={`data:image/png;base64,${image}`}
-                      alt={`Generated Image`}
-                    />
-                    <a
-                      href={`data:image/png;base64,${image}`}
-                      download={`image${index + 1}.png`}
-                      className="bg-purple-700 text-white rounded-md p-2"
-                    >
-                      Download
-                    </a>
-                  </div>
-                ))
-                }
+            {loading ? (
+              <div className='flex flex-col items-center justify-center m-10'>
+                <h1 className='text-2xl text-purple-700'>Generating...</h1>
+                {/* animation here */}
+                <GridLoader color='#7C3AED' size={20} />
               </div>
+            )
               :
-              <div className='flex flex-col items-center justify-center'>
-              </div>
+              (
+                <div className='grid grid-cols-2 gap-4'>
+                  {images && images.map((image, index) => (
+                    <div
+                      key={index}
+                      className='flex flex-col items-center justify-center'>
+                      <Image
+                        className='border-2 border-purple-700 rounded-md p-2 m-4'
+                        height={250}
+                        width={250}
+                        src={`data:image/png;base64,${image}`}
+                        alt={`Generated Image`}
+                      />
+                      <a
+                        href={`data:image/png;base64,${image}`}
+                        download={`image${index + 1}.png`}
+                        className="bg-purple-700 text-white rounded-md p-2"
+                      >
+                        Download
+                      </a>
+                    </div>
+                  ))
+                  }
+                </div>
+              )
             }
           </div>
         </main>
