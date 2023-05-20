@@ -1,7 +1,7 @@
 # Text to Image Generator
 
 
-![image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/8a7d346e-d773-4b6e-8dce-6db0f7175416)
+[image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/8a7d346e-d773-4b6e-8dce-6db0f7175416)
 
 This is the client side of a stable diffusion model project that I was fine-tuning to better generate Ethiopian faces.
 
