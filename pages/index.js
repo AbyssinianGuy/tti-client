@@ -82,16 +82,16 @@ export default function Home() {
 
   return (
     <div className='bg-gray-950'>
-      <div className='flex flex-row items-center justify-center pt-16 mt-16 mb-4'>
+      <div className='flex flex-row items-center justify-center pt-16 md:pt-8 lg:mt-16 lg:mb-4 mx-auto'>
         <div className='flex flex-col items-center justify-center' >
           <h1 className='text-8xl md:text-9xl sm:text-9xl flex-1 text-center animate-glow'>Text 2 Image</h1>
           <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center sm:m-auto">
+      <div className="flex flex-col items-center justify-center min-h-screen py-2 md:px-4 sm:px-4">
+        <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center md:px-4 sm:px-4">
           {/* an input prompt for text and a button for generating image */}
-          <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 lg:border sm:px-4'>
+          <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 sm:px-4'>
             <div className='flex flex-1 items-center'>
               <label className='text-2xl'>Prompt</label>
               <input
@@ -125,7 +125,7 @@ export default function Home() {
             </div>
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Number of Images</label>
-              <div className=' mx-4 flex flex-1 lg:flex-row md:flex-row sm:flex-col-reverse items-center'>
+              <div className=' mx-4 flex flex-1 lg:flex-row md:flex-col-reverse sm:flex-col-reverse items-center'>
                 <input
                   className='border-1 rounded-md p-0 m-4 w-full text-black'
                   type="range"
@@ -136,7 +136,7 @@ export default function Home() {
                   onChange={e => setNumImages(e.target.value)}
                 />
                 <input
-                  className='text-2xl border-2 rounded-md p-2 m-4 w-1/4 sm:w-full text-black text-center'
+                  className='text-2xl border-2 rounded-md p-2 m-4 w-1/4 md:w-full sm:w-full text-black text-center'
                   type="number"
                   value={numImages}
                   placeholder='Enter text here'
@@ -148,7 +148,7 @@ export default function Home() {
             </div>
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Number of Training Images</label>
-              <div className=' mx-4 flex flex-1 lg:flex-row md:flex-row sm:flex-col-reverse items-center'>
+              <div className=' mx-4 flex flex-1 lg:flex-row md:flex-col-reverse sm:flex-col-reverse items-center'>
                 <input
                   className='border-1 rounded-md p-0 m-4 w-full text-black'
                   type="range"
@@ -159,7 +159,7 @@ export default function Home() {
                   onChange={e => setNumTrain(e.target.value)}
                 />
                 <input
-                  className='text-2xl border-2 rounded-md p-2 m-4 w-20 sm:w-full text-black text-center'
+                  className='text-2xl border-2 rounded-md p-2 m-4 w-20 md:w-full sm:w-full text-black text-center'
                   type='number'
                   max={150}
                   min={30}
