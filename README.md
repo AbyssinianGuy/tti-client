@@ -1,17 +1,17 @@
 # Text to Image Generator
 
 
-![image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/8a7d346e-d773-4b6e-8dce-6db0f7175416)
+![Screenshot 2023-05-20 000716](https://github.com/AbyssinianGuy/tti-client/assets/72876485/7ecd039d-6c3f-4a1a-a718-96c147ee3226)
 
 This is the client side of a stable diffusion model project that I was fine-tuning to better generate Ethiopian faces.
 
 ## Before training/fine-tuning the model for the new dataset
 
-[image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/18669189-44be-43ac-8c47-e360c84429b5)
+![before](https://github.com/AbyssinianGuy/tti-client/assets/72876485/cc3c582e-b6bf-482f-bd26-343987838f93)
 
 ## After
 
-[image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/143b2b66-48b6-40f9-9639-f577d326a596)
+![after](https://github.com/AbyssinianGuy/tti-client/assets/72876485/a0af5de3-df90-4bb8-94b6-4cdcb5479bbd)
 
 
 
