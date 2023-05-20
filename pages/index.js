@@ -92,17 +92,17 @@ export default function Home() {
         <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center md:px-4 sm:px-4">
           {/* an input prompt for text and a button for generating image */}
           <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 sm:px-4'>
-            <div className='flex flex-1 items-center'>
+            <div className='lg:flex md:flex-col lg:flex-row items-center'>
               <label className='text-2xl'>Prompt</label>
               <input
-                className='border-2 rounded-md p-2 m-4 w-full text-black text-xl'
+                className='border-2 rounded-md p-2 m-4 lg:w-full md:w-auto text-black text-xl'
                 type="text"
                 value={prompt}
                 placeholder='Enter prompt here'
                 onChange={e => setPrompt(e.target.value)}
               />
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='lg:flex lg:flex-row md:flex-col sm:flex-col items-center'>
               <label className='text-2xl'>Negative Prompt</label>
               <select
                 className='border-2 rounded-md p-2 m-4 md:w-auto sm:w-1/2 text-black text-xl'
@@ -116,14 +116,14 @@ export default function Home() {
                 ))}
               </select>
               <input
-                className='border-2 rounded-md p-2 m-4 lg:flex-grow md:w-full sm:w-full text-black text-xl'
+                className='border-2 rounded-md p-2 m-4 lg:flex-grow w-full text-black text-xl'
                 type="text"
                 value={negativePrompt}
                 placeholder=''
                 onChange={e => setNegativePrompt(e.target.value)}
               />
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='lg:flex lg:flex-row md:flex-col items-center'>
               <label className='text-2xl'>Number of Images</label>
               <div className=' mx-4 flex flex-1 lg:flex-row md:flex-col-reverse sm:flex-col-reverse items-center'>
                 <input
@@ -146,7 +146,7 @@ export default function Home() {
 
               </div>
             </div>
-            <div className='flex flex-row items-center'>
+            <div className='lg:flex lg:flex-row md:flex-col items-center'>
               <label className='text-2xl'>Number of Training Images</label>
               <div className=' mx-4 flex flex-1 lg:flex-row md:flex-col-reverse sm:flex-col-reverse items-center'>
                 <input
@@ -170,47 +170,51 @@ export default function Home() {
               </div>
             </div>
             <div className='flex flex-row items-center'>
-              <label className='text-2xl'>Height</label>
-              <div className=' mx-4 flex flex-col items-center'>
-                <input
-                  className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
-                  type="number"
-                  value={height}
-                  placeholder='Enter text here'
-                  onChange={e => setHeight(e.target.value)}
-                />
-                <input
-                  className='border-1 rounded-md p-0 m-4 w-full text-black'
-                  type="range"
-                  min={256}
-                  step={256}
-                  max={1024}
-                  value={height}
-                  onChange={e => setHeight(e.target.value)}
-                />
+              <div className='lg:flex lg:flex-row md:flex-col items-center'>
+                <label className='text-2xl'>Height</label>
+                <div className=' mx-4 flex flex-col items-center'>
+                  <input
+                    className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
+                    type="number"
+                    value={height}
+                    placeholder='Enter text here'
+                    onChange={e => setHeight(e.target.value)}
+                  />
+                  <input
+                    className='border-1 rounded-md p-0 m-4 w-full text-black'
+                    type="range"
+                    min={256}
+                    step={256}
+                    max={1024}
+                    value={height}
+                    onChange={e => setHeight(e.target.value)}
+                  />
+                </div>
               </div>
-              <label className='text-2xl'>Width</label>
-              <div className=' mx-4 flex flex-col items-center'>
-                <input
-                  className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
-                  type="number"
-                  value={width}
-                  placeholder='Enter text here'
-                  onChange={e => setWidth(e.target.value)}
-                />
-                <input
-                  className='border-1 rounded-md p-0 m-4 w-full text-black text-center'
-                  type="range"
-                  min={256}
-                  step={256}
-                  max={1024}
-                  value={width}
-                  onChange={e => setWidth(e.target.value)}
-                />
+              <div className='lg:flex lg:flex-row md:flex-col items-center'>
+                <label className='text-2xl'>Width</label>
+                <div className=' mx-4 flex flex-col items-center'>
+                  <input
+                    className='border-2 rounded-md p-2 mx-4 mt-4 w-full text-black text-center text-xl'
+                    type="number"
+                    value={width}
+                    placeholder='Enter text here'
+                    onChange={e => setWidth(e.target.value)}
+                  />
+                  <input
+                    className='border-1 rounded-md p-0 m-4 w-full text-black text-center'
+                    type="range"
+                    min={256}
+                    step={256}
+                    max={1024}
+                    value={width}
+                    onChange={e => setWidth(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
             {/* model selection */}
-            <div className='flex flex-row items-center justify-center'>
+            <div className='lg:flex lg:flex-row md:flex-col items-center justify-center'>
               <label className='text-2xl'>Model</label>
               <select
                 className='border-2 rounded-md p-2 m-4 w-auto text-black text-xl'
