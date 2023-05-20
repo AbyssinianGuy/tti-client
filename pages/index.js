@@ -82,17 +82,15 @@ export default function Home() {
 
   return (
     <div className='bg-gray-950'>
-      <div className='flex flex-row items-center justify-center pt-16 md:pt-8 lg:mt-16 lg:mb-4 mx-auto md:flex-1'>
-        <div className='flex flex-col items-center justify-center' >
-          <h1 className='text-8xl md:text-9xl sm:text-9xl flex-1 text-center animate-glow'>Text 2 Image</h1>
-          <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
-        </div>
+      <div className='lg:flex lg:flex-col items-center justify-center pt-16 md:pt-8 lg:mt-16 lg:mb-4 mx-auto md:flex-1' >
+        <h1 className='text-8xl md:text-9xl sm:text-9xl flex-1 text-center animate-glow'>Text 2 Image</h1>
+        <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
       </div>
       <div className="flex flex-col items-center justify-center  py-10 md:px-8 sm:px-8">
         <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center md:px-4 sm:px-4">
           {/* an input prompt for text and a button for generating image */}
-          <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 sm:px-4'>
-            <div className='lg:flex lg:flex-row md:flex md:flex-col items-center'>
+          <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10'>
+            <div className='lg:flex lg:flex-row md:flex-col md:justify-center sm:flex-col items-center'>
               <label className='text-2xl'>Prompt</label>
               <input
                 className='border-2 rounded-md p-2 m-4 lg:w-full md:w-auto text-black text-xl'
@@ -102,7 +100,7 @@ export default function Home() {
                 onChange={e => setPrompt(e.target.value)}
               />
             </div>
-            <div className='lg:flex lg:flex-row md:flex-col sm:flex-col items-center'>
+            <div className='lg:flex lg:flex-row md:flex-col md:justify-center sm:flex-col items-center'>
               <label className='text-2xl'>Negative Prompt</label>
               <select
                 className='border-2 rounded-md p-2 m-4 md:w-auto sm:w-1/2 text-black text-xl'
@@ -123,7 +121,7 @@ export default function Home() {
                 onChange={e => setNegativePrompt(e.target.value)}
               />
             </div>
-            <div className='lg:flex lg:flex-row md:flex-col items-center'>
+            <div className='lg:flex lg:flex-row md:flex-col md:justify-center items-center'>
               <label className='text-2xl'>Number of Images</label>
               <div className=' mx-4 flex flex-1 lg:flex-row md:flex-col-reverse sm:flex-col-reverse items-center'>
                 <input
@@ -146,7 +144,7 @@ export default function Home() {
 
               </div>
             </div>
-            <div className='lg:flex lg:flex-row md:flex-col items-center'>
+            <div className='lg:flex lg:flex-row md:flex-col md:justify-center items-center'>
               <label className='text-2xl'>Number of Training Images</label>
               <div className=' mx-4 flex flex-1 lg:flex-row md:flex-col-reverse sm:flex-col-reverse items-center'>
                 <input
@@ -170,7 +168,7 @@ export default function Home() {
               </div>
             </div>
             <div className='flex flex-row items-center'>
-              <div className='lg:flex lg:flex-row md:flex-col items-center'>
+              <div className='lg:flex lg:flex-row md:flex-col md:justify-center items-center'>
                 <label className='text-2xl'>Height</label>
                 <div className=' mx-4 flex flex-col items-center'>
                   <input
@@ -191,7 +189,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className='lg:flex lg:flex-row md:flex-col items-center'>
+              <div className='lg:flex lg:flex-row md:flex-col md:justify-center items-center'>
                 <label className='text-2xl'>Width</label>
                 <div className=' mx-4 flex flex-col items-center'>
                   <input
@@ -214,7 +212,7 @@ export default function Home() {
               </div>
             </div>
             {/* model selection */}
-            <div className='lg:flex lg:flex-row md:flex-col items-center justify-center'>
+            <div className='lg:flex lg:flex-row md:flex-col md:justify-center items-center justify-center'>
               <label className='text-2xl'>Model</label>
               <select
                 className='border-2 rounded-md p-2 m-4 w-auto text-black text-xl'
