@@ -81,14 +81,14 @@ export default function Home() {
   }
 
   return (
-    <div className='bg-gray-950'>
-      <div className='flex flex-row items-center justify-center pt-16 md:pt-8 lg:mt-16 lg:mb-4 mx-auto'>
+    <div className='bg-gray-950 ml-16'>
+      <div className='flex flex-row items-center justify-center pt-16 md:pt-8 lg:mt-16 lg:mb-4 mx-auto md:flex-1'>
         <div className='flex flex-col items-center justify-center' >
           <h1 className='text-8xl md:text-9xl sm:text-9xl flex-1 text-center animate-glow'>Text 2 Image</h1>
           <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center  py-2 md:px-4 sm:px-4">
+      <div className="flex flex-col items-center justify-center  py-2 md:px-8 sm:px-8">
         <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center md:px-4 sm:px-4">
           {/* an input prompt for text and a button for generating image */}
           <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 sm:px-4'>
@@ -269,14 +269,16 @@ export default function Home() {
             }
           </div>
         </main>
-        <footer className="flex items-center justify-center w-full h-24 border-t">
+        <footer className="flex flex-auto items-center justify-center w-full h-24 border-t">
           <a
             className="flex items-center justify-center"
             href="https://abyssinian.io"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Powered by{<span className=' text-purple-700'>&nbsp;Abyssinian.AI</span>}
+            <div className='flex items-center justify-center'>
+              Powered by{<span className=' text-purple-700'>&nbsp;Abyssinian.AI</span>}
+            </div>
           </a>
         </footer>
       </div>
