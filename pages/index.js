@@ -88,7 +88,7 @@ export default function Home() {
           <h1 className='text-8xl flex-1 text-center animate-glow'>🤖</h1>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen py-2 md:px-4 sm:px-4">
+      <div className="flex flex-col items-center justify-center  py-2 md:px-4 sm:px-4">
         <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center md:px-4 sm:px-4">
           {/* an input prompt for text and a button for generating image */}
           <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 sm:px-4'>
