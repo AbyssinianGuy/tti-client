@@ -89,10 +89,10 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
+        <main className="flex flex-col items-center justify-center flex-1 lg:px-20 text-center">
           {/* an input prompt for text and a button for generating image */}
-          <div className='grid grid-cols-1 gap-4 px-10 py-10 border '>
-            <div className='flex flex-row items-center'>
+          <div className='lg:grid lg:grid-cols-1 lg:gap-4 lg:px-10 lg:py-10 lg:border sm:px-4'>
+            <div className='flex flex-1 items-center'>
               <label className='text-2xl'>Prompt</label>
               <input
                 className='border-2 rounded-md p-2 m-4 w-full text-black text-xl'
@@ -105,7 +105,7 @@ export default function Home() {
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Negative Prompt</label>
               <select
-                className='border-2 rounded-md p-2 m-4 w-auto text-black text-xl'
+                className='border-2 rounded-md p-2 m-4 md:w-auto sm:w-1/2 text-black text-xl'
                 type="text"
                 value={negativePrompt}
                 onChange={e => setNegativePrompt(prevValue =>
@@ -116,7 +116,7 @@ export default function Home() {
                 ))}
               </select>
               <input
-                className='border-2 rounded-md p-2 m-4 flex-grow text-black text-xl'
+                className='border-2 rounded-md p-2 m-4 lg:flex-grow md:w-full sm:w-full text-black text-xl'
                 type="text"
                 value={negativePrompt}
                 placeholder=''
@@ -125,7 +125,7 @@ export default function Home() {
             </div>
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Number of Images</label>
-              <div className=' mx-4 flex flex-1 flex-row items-center'>
+              <div className=' mx-4 flex flex-1 lg:flex-row md:flex-row sm:flex-col-reverse items-center'>
                 <input
                   className='border-1 rounded-md p-0 m-4 w-full text-black'
                   type="range"
@@ -136,7 +136,7 @@ export default function Home() {
                   onChange={e => setNumImages(e.target.value)}
                 />
                 <input
-                  className='text-2xl border-2 rounded-md p-2 m-4 w-1/4 text-black text-center'
+                  className='text-2xl border-2 rounded-md p-2 m-4 w-1/4 sm:w-full text-black text-center'
                   type="number"
                   value={numImages}
                   placeholder='Enter text here'
@@ -148,24 +148,26 @@ export default function Home() {
             </div>
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Number of Training Images</label>
-              <input
-                className='border-1 rounded-md p-0 m-4 w-full text-black'
-                type="range"
-                min={30}
-                max={150}
-                step={5}
-                value={numTrain}
-                onChange={e => setNumTrain(e.target.value)}
-              />
-              <input
-                className='text-2xl border-2 rounded-md p-2 m-4 w-20 text-black text-center'
-                type='number'
-                max={150}
-                min={30}
-                step={5}
-                value={numTrain}
-                onChange={e => setNumTrain(e.target.value)}
-              />
+              <div className=' mx-4 flex flex-1 lg:flex-row md:flex-row sm:flex-col-reverse items-center'>
+                <input
+                  className='border-1 rounded-md p-0 m-4 w-full text-black'
+                  type="range"
+                  min={30}
+                  max={150}
+                  step={5}
+                  value={numTrain}
+                  onChange={e => setNumTrain(e.target.value)}
+                />
+                <input
+                  className='text-2xl border-2 rounded-md p-2 m-4 w-20 sm:w-full text-black text-center'
+                  type='number'
+                  max={150}
+                  min={30}
+                  step={5}
+                  value={numTrain}
+                  onChange={e => setNumTrain(e.target.value)}
+                />
+              </div>
             </div>
             <div className='flex flex-row items-center'>
               <label className='text-2xl'>Height</label>
@@ -223,7 +225,7 @@ export default function Home() {
             </div>
           </div>
           <button
-            className='bg-purple-700 text-white rounded-md p-2 w-1/2 m-10 disabled:opacity-40'
+            className='bg-purple-700 text-white rounded-md p-2 w-1/2 m-10 sm:w-3/4 disabled:opacity-40'
             onClick={() => generateImage(data)}
             disabled={loading}
           >
