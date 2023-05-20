@@ -1,3 +1,20 @@
+# Text to Image Generator
+
+
+![image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/8a7d346e-d773-4b6e-8dce-6db0f7175416)
+
+This is the client side of a stable diffusion model project that I was fine-tuning to better generate Ethiopian faces.
+
+## Before training/fine-tuning the model for the new dataset
+
+![image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/18669189-44be-43ac-8c47-e360c84429b5)
+
+## After
+
+![image](https://github.com/AbyssinianGuy/tti-client/assets/72876485/143b2b66-48b6-40f9-9639-f577d326a596)
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
